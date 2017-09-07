@@ -20,7 +20,7 @@ module.exports = {
     publicPath: '/'
   },
   devServer: {
-    contentBase: 'public',
+    contentBase: 'dist',
     compress: true,
   },
   resolve: {
@@ -86,7 +86,7 @@ module.exports = {
       },
     }),
     new HtmlWebpackPlugin({
-      title: 'TA Media DSP',
+      title: 'JazzRoad',
       hash: true,
       template: "src/index.dev.ejs",
       chunks: ["app"]
