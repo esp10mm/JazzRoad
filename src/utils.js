@@ -1,8 +1,8 @@
-import debug from 'debug';
+import Debug from 'debug';
 
-module.exports = {
-  debug: debug('dev:'),
-  sleep: (time) => (new Promise((resolve) => {
-    setTimeout(resolve, time * 1000);
-  }))
-}
+export const debug = Debug('dev:');
+  // debug: debug('dev:'),
+  // sleep: (time) => (new Promise((resolve) => {
+  //   setTimeout(resolve, time * 1000);
+  // }))
+// }
