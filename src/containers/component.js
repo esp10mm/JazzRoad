@@ -1,11 +1,12 @@
 import React, { PropTypes } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { Route } from 'react-router';
+import { Route, Switch } from 'react-router';
 import { Link } from 'react-router-dom';
 import { component as Metronome } from './Metronome';
 import { debug } from '../utils';
 import * as actions from './actions';
+import HeadMenu from './components/HeadMenu';
 
 const mapStateToProps = state => ({
   general: state.general
@@ -15,12 +16,18 @@ const mapDispatchToProps = dispatch => ({
   actions: bindActionCreators(actions, dispatch)
 });
 
-        // <Link to="/metronome"}>click</Link>
 class Containers extends React.Component {
+  componentDidMount() {
+    this.props.actions.updateWindowDime();
+    window.addEventListener('resize', this.props.actions.updateWindowDime);
+  }
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.props.actions.updateWindowDime);
+  }
   render() {
     return (
       <div>
-        Containers
+        <HeadMenu />
         <button
           className="ui button"
           onClick={this.props.actions.hi}
@@ -28,17 +35,19 @@ class Containers extends React.Component {
           Click2
         </button>
         <Link to="/metronome">Click</Link>
-        <Route
-          path={`${this.props.match.url}metronome`}
-          render={() => (<Metronome />)}
-        />
+        <Switch>
+          <Route
+            path={`${this.props.match.url}metronome`}
+            component={Metronome}
+          />
+        </Switch>
       </div>
     )
   }
 };
 
 Containers.protTypes = {
-  db: PropTypes.object,
+  general: PropTypes.object,
   actions: PropTypes.object,
 };
 

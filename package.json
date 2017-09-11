@@ -39,7 +39,7 @@
     "redux": "^3.7.2",
     "redux-devtools": "^3.4.0",
     "redux-thunk": "^2.2.0",
-    "semantic": "0.0.1",
+    "semantic-ui": "^2.2.13",
     "semantic-ui-css": "^2.2.12",
     "style-loader": "^0.18.2",
     "tone": "^0.10.0",

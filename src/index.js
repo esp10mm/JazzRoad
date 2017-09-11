@@ -3,9 +3,12 @@ import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose } from 'redux';
 import { createBrowserHistory } from 'history';
-import { Router, Route, IndexRoute } from 'react-router';
+import { Router, Route } from 'react-router';
 import thunk from 'redux-thunk';
+
 import 'semantic-ui-css/semantic.css';
+import 'semantic-ui/dist/components/dropdown';
+import 'semantic-ui/dist/components/transition';
 
 import { component as Containers } from './containers';
 
