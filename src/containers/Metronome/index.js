@@ -1,3 +1,6 @@
-import reducer from './reducer';
+import { reducer } from './reducer';
 import component from './component';
-export { reducer, component };
+
+const container = 'metronome';
+export { reducer, component, container as container };
+// export const container = 'metronome';
