@@ -1,7 +1,10 @@
 import React, { PropTypes } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import { Route } from 'react-router';
+import { Link } from 'react-router-dom';
 import { component as Metronome } from './Metronome';
+import { debug } from '../utils';
 import * as actions from './actions';
 
 const mapStateToProps = state => ({
@@ -12,6 +15,7 @@ const mapDispatchToProps = dispatch => ({
   actions: bindActionCreators(actions, dispatch)
 });
 
+        // <Link to="/metronome"}>click</Link>
 class Containers extends React.Component {
   render() {
     return (
@@ -23,7 +27,11 @@ class Containers extends React.Component {
         >
           Click2
         </button>
-        <Metronome />
+        <Link to="/metronome">Click</Link>
+        <Route
+          path={`${this.props.match.url}metronome`}
+          render={() => (<Metronome />)}
+        />
       </div>
     )
   }

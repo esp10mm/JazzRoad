@@ -3,12 +3,11 @@ import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose } from 'redux';
 import { createBrowserHistory } from 'history';
-import { Router, Route } from 'react-router';
+import { Router, Route, IndexRoute } from 'react-router';
 import thunk from 'redux-thunk';
 import 'semantic-ui-css/semantic.css';
 
 import { component as Containers } from './containers';
-import { component as Metronome } from './containers/Metronome';
 
 import { debug } from './utils';
 import reducers from './reducers';
